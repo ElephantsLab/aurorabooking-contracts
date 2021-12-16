@@ -4,9 +4,19 @@
   "description": "",
   "main": "truffle-config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "truffle compile --all",
+    "mesure": "npm run compile && truffle run contract-size --checkMaxSize --sizeInBytes",
+    "build": "rm -rf dist/ && sol-merger -c \"./contracts/**/*.sol\" ./dist/",
+    "migrate": "npm run compile && truffle migrate --network bsc_testnet --compile-none --reset"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.1"
+  },
+  "devDependencies": {
+    "sol-merger": "^3.1.0",
+    "truffle-contract-size": "^2.0.1"
+  }
 }
