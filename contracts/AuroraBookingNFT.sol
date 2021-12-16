@@ -39,8 +39,14 @@ contract AuroraBookingNFT is ERC721("Aurora Booking Collection", "ABC"), Ownable
 
   function mint(address _address, uint256 _id) external onlyOwner {
     _mint(_address, _id);
+
+    owns[_address].push(_id);
   }
 
   //TODO: burning
+
+  function getOwnedTokensIds(address owner) external view returns (uint256[] memory) {
+    return owns[owner];
+  }
 
 }
