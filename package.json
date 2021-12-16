@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "truffle compile --all",
     "mesure": "npm run compile && truffle run contract-size --checkMaxSize --sizeInBytes",
-    "build": "rm -rf dist/ && sol-merger -c \"./contracts/**/*.sol\" ./dist/",
+    "build": "rm -rf ./build/dist/ && sol-merger -c \"./contracts/**/*.sol\" ./build/dist/",
     "migrate": "npm run compile && truffle migrate --network bsc_testnet --compile-none --reset"
   },
   "keywords": [],
