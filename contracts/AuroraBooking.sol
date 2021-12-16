@@ -28,12 +28,14 @@ contract AuroraBooking is Ownable {
     nftContractAddress = _nftContractAddress;
   }
 
-  function book(uint8 placeId, uint8 tableId) external {
+  function book(uint8 placeId, uint8 tableId) external returns (uint256) {
     AuroraBookingNFT(nftContractAddress).mint(msg.sender, nftCounter);
 
     emit Booked(msg.sender, placeId, tableId, nftCounter);
 
     nftCounter++;
+
+    return (nftCounter - 1);
   }
 
   function sell(uint256 tokenId, uint256 price) external {
