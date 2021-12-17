@@ -39,6 +39,7 @@ contract AuroraBooking is Ownable {
   }
 
   function sell(uint256 tokenId, uint256 price) external {
+    //require(price > 0, "Invalid price amount");
     require(AuroraBookingNFT(nftContractAddress).ownerOf(tokenId) == msg.sender, "You aren't the owner of this NFT");
     require(AuroraBookingNFT(nftContractAddress).getApproved(tokenId) == address(this), "NFT token spend is not allowed");
 
