@@ -10,7 +10,7 @@ contract AuroraBookingNFT is ERC721("Aurora Booking Collection", "ABC"), Ownable
   mapping(address => uint256[]) public owns;
 
   function _baseURI() internal pure override returns (string memory) {
-    return "https://aurorabooking.net:3000/metadata/";
+    return "https://aurorabooking.net/api/";
   }
 
   function _transfer(
